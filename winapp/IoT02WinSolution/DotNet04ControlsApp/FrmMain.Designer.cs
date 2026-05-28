@@ -52,16 +52,27 @@
             pictureBox1 = new PictureBox();
             button3 = new Button();
             groupBox5 = new GroupBox();
+            textBox1 = new TextBox();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            process = new ProgressBar();
             groupBox6 = new GroupBox();
+            save = new Button();
+            load = new Button();
             DlgOpenFile = new OpenFileDialog();
             saveFileDialog1 = new SaveFileDialog();
             imageList1 = new ImageList(components);
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            TextBox2 = new RichTextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TrkStatus).BeginInit();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox5.SuspendLayout();
+            groupBox6.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -278,6 +289,11 @@
             // 
             // groupBox5
             // 
+            groupBox5.Controls.Add(textBox1);
+            groupBox5.Controls.Add(button6);
+            groupBox5.Controls.Add(button5);
+            groupBox5.Controls.Add(button4);
+            groupBox5.Controls.Add(process);
             groupBox5.Location = new Point(347, 348);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(315, 169);
@@ -285,14 +301,82 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "스레드";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(6, 20);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(303, 82);
+            textBox1.TabIndex = 4;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(216, 137);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 3;
+            button6.Text = "button6";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(135, 137);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 2;
+            button5.Text = "button5";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(54, 137);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 1;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // process
+            // 
+            process.Location = new Point(6, 108);
+            process.Name = "process";
+            process.Size = new Size(303, 23);
+            process.TabIndex = 0;
+            // 
             // groupBox6
             // 
+            groupBox6.Controls.Add(TextBox2);
+            groupBox6.Controls.Add(save);
+            groupBox6.Controls.Add(load);
             groupBox6.Location = new Point(668, 39);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(504, 478);
             groupBox6.TabIndex = 1;
             groupBox6.TabStop = false;
             groupBox6.Text = "텍스트 에디터";
+            // 
+            // save
+            // 
+            save.Location = new Point(423, 449);
+            save.Name = "save";
+            save.Size = new Size(75, 23);
+            save.TabIndex = 2;
+            save.Text = "세이브";
+            save.UseVisualStyleBackColor = true;
+            save.Click += save_Click;
+            // 
+            // load
+            // 
+            load.Location = new Point(342, 449);
+            load.Name = "load";
+            load.Size = new Size(75, 23);
+            load.TabIndex = 1;
+            load.Text = "로드";
+            load.UseVisualStyleBackColor = true;
+            load.Click += load_Click;
             // 
             // DlgOpenFile
             // 
@@ -313,6 +397,20 @@
             imageList1.Images.SetKeyName(6, "스크린샷 2026-05-26 155800.png");
             imageList1.Images.SetKeyName(7, "스크린샷 2026-05-26 160616.png");
             imageList1.Images.SetKeyName(8, "스크린샷 2026-05-26 163259.png");
+            // 
+            // backgroundWorker1
+            // 
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
+            backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
+            // 
+            // TextBox2
+            // 
+            TextBox2.Location = new Point(6, 22);
+            TextBox2.Name = "TextBox2";
+            TextBox2.Size = new Size(492, 421);
+            TextBox2.TabIndex = 3;
+            TextBox2.Text = "";
             // 
             // FrmMain
             // 
@@ -337,6 +435,9 @@
             groupBox3.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox6.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -368,5 +469,14 @@
         private ImageList imageList1;
         private PictureBox pictureBox1;
         private Button button3;
+        private TextBox textBox1;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private ProgressBar process;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button load;
+        private Button save;
+        private RichTextBox TextBox2;
     }
 }

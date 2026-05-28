@@ -116,13 +116,125 @@ namespace DotNet04ControlsApp
         //피쳐박스 컨트롤 클릭 이벤트
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(pictureBox1.SizeMode == PictureBoxSizeMode.CenterImage)
+            if (pictureBox1.SizeMode == PictureBoxSizeMode.CenterImage)
             {
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             else
             {
                 pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            }
+        }
+        // 스레드 없이 진행
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var maximum = 100;
+            var minimum = 0;
+            var currValue = 0;
+            process.Maximum = maximum;
+            process.Minimum = minimum;
+            process.Value = 0;
+            button4.Enabled = false;
+            button5.Enabled = false;
+            button6.Enabled = true;
+            // 프로세스 진행 더미로 실행
+            for (int i = 0; i <= maximum; i++)
+            {
+                currValue = i;
+                process.Value = currValue;
+                textBox1.AppendText($"진행사항{currValue}\r\n");
+                Thread.Sleep(500);
+
+            }
+            button4.Enabled = button5.Enabled = true;
+            button6.Enabled = false;
+        }
+        // 스레드로 진행
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var maximum = 100;
+            var minimum = 0;
+            var currValue = 0;
+            process.Maximum = maximum;
+            process.Minimum = minimum;
+            process.Value = 0;
+            button4.Enabled = false;
+            button5.Enabled = false;
+            button6.Enabled = true;
+
+            // 내부작업을 백그라운드 워커에 이벤트로 분리해야함
+            backgroundWorker1.WorkerReportsProgress = true; // 진행사항 리포트 활성화 
+            backgroundWorker1.WorkerSupportsCancellation = true;// 백그라운드 워커 취소 활성화
+            backgroundWorker1.RunWorkerAsync(null);
+        }
+        // 정지
+        private void button6_Click(object sender, EventArgs e)
+        {
+            button4.Enabled = true;
+            button5.Enabled = true;
+            button6.Enabled = true;
+
+            backgroundWorker1.CancelAsync();
+        }
+
+
+        #region 백그라운드 워커 이벤트 핸들러
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            var maximum = 100;
+            var currValue = 0;
+            for (int i = 0; i <= maximum; i++)
+            {
+                if (backgroundWorker1.CancellationPending)
+                {
+                    e.Cancel = true;
+                    break;
+                }
+                else
+                {
+                    currValue = i;
+                    Thread.Sleep(100);
+                    backgroundWorker1.ReportProgress((int)currValue);
+                }
+
+
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            process.Value = e.ProgressPercentage;
+            textBox1.AppendText($"진행사항{process.Value}\r\n");
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+
+            MessageBox.Show("작업이 완료되었습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            button4.Enabled = true;
+            button5.Enabled = true;
+            button6.Enabled = true;
+        }
+        #endregion
+
+        private void load_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Multiselect = false;
+            dlg.Filter = "텍스트 파일(*.txt;*.cs;*.py)|*.txt;*.cs;*.py|모든 파일(*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                TextBox2.LoadFile(dlg.FileName, RichTextBoxStreamType.PlainText);
+            }
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "텍스트 파일(*.txt)|*.txt|모든 파일(*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                TextBox2.SaveFile(dlg.FileName, RichTextBoxStreamType.PlainText);
             }
         }
     }
