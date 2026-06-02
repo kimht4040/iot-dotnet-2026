@@ -9,7 +9,7 @@ namespace WinFormsApp2
     internal class DatabaseHelper
     {
         // 도커에 띄운 MySQL 접속 문자열
-        private readonly string connStr = "Server=localhost;Database=bookrentalshop;User ID=root;Password=my123456;Charset=utf8mb4;";
+        private readonly string connStr = "Server=localhost;Database=bookrentalshop;User ID=root;Password=root1234;Charset=utf8mb4;";
 
         /// <summary>
         /// DB 연결 객체를 직접 가져올 때 사용합니다.

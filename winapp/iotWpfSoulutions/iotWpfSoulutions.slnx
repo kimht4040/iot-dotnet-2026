@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WpfBasic01App/WpfBasic01App.csproj" />
+  <Project Path="Wpfbasic02/Wpfbasic02.csproj" />
+</Solution>
