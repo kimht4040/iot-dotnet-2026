@@ -397,6 +397,114 @@ page.resources, window.Resources. application.resources 태그 내에 작성
 ![alt text](KakaoTalk_20260602_152403624.png)
 
 
+
+### 데이터바인딩
+- 현재 대부분 앱은 데이터 중심
+    - 데이터 저장소 (DB, 파일시스템, 클라우드 openapi)의 데이터를 가져와서 표시
+    - 신규, 변경, 저장소에 다시 저장
+- 바인딩 패턴
+    - Early Binding(static) - 데이터가 변경될 때마다 화면을 갱신
+    - Late Binding(dynamic) - 화면에 표시된 데이터가 변경될 때마다 데이터를 갱신
+
+- 바인딩 방법
+``` xml
+<TextBox Text="{Binding Path 속성값}">
+<TextBox Text="{Binding Path=속성값}">
+<!-- 컨트롤명에 속하는 속성값이 표시, 여기에 새 값을 입력하면 컨트롤이 상호작용 -->
+<TextBox Text="{Binding Source={StaticResource 이름}, Path = 속성값}">
+```
+
+- 슬라이더와 프로그래스바 바인딩
+    ```xml
+    <Slider x:Name="SliderTest" Minimum="0" Maximum="100" TickFrequency="10" Value="20" />
+    <ProgressBar Minimum="0" Maximum="100" Value="{Binding Value, ElementName=SliderTest}" Height="20" />
+    ```
+- 바인딩 모드
+
+
+- 도구상자 컨트롤별 기본값
+    - TextBlock, Label, Rectangle, Image, ProgressBar 는 OneWay, 나머지는 거의 TwoWay
+- WPF 바인딩은 전통적인 윈폼 바인딩보다 코딩량이 적고 쉽게 구현가능 
+- DataContext : 데이터를 찾아올 위치 바인딩되는 데이터를 화면상에서 적용
+    - 어떤 객체에도 전부할당 가능
+- ItemsSource : 목록컬렉션은 어느 컨트롤에 할당하는지 
+
+#### 데이터 그리드, 컨트롤 바인딩
+1. 필요 데이터 속성 생성
+
+    ```cs
+    public List<Employee> Employees { get; set; }  // employee 컬렉션 속성
+
+    public Employee SelectedEmployee { get; set; }
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        // 데이터그리드 할당
+        this.DataContext = this;  // 코드비하인드 데이터를 화면으로 보내기
+    ```
+
+2. xaml 데이터바인딩 작업
+
+    ```xml
+    <!-- UI 디자이너 작업시 아래 내용 코딩 -->
+    <DataGrid x:Name="DgrEmployees" 
+          IsReadOnly="True" 
+          SelectionMode="Single" 
+          ItemsSource="{Binding Employees}"
+          SelectedItem="{Binding SelectedEmployee}">
+    </DataGrid>
+
+    <GroupBox Header="상세정보" 
+            DataContext="{Binding SelectedItem, ElementName=DgrEmployees}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <!-- 생략 -->
+            </Grid.RowDefinitions>
+
+            <TextBox Text="{Binding Id}" />
+            <TextBox Text="{Binding Name}" />
+            ...
+            <CheckBox IsChecked="{Binding IsActive}" />
+    ```
+
+
+3. UI설계에 바인딩할 속성이 다 지정
+![alt text](KakaoTalk_20260604_114517872.png)
+
+
+#### 콤보박스, 리스트박스 바인딩
+1. 아이템소스 바인딩 사용
+2. 셀렉티드소스 바인딩 사용
+3. 데이터그리드와 사용법 동일
+
+
+### Modern Design 적용
+- UI 디자인 프레임워크 사용
+    - https://mahapps.com/ 
+
+- 
+
+- Modern Design 적용 방법
+```xml
+<mah:MetroWindow x:Class="WpfBasic03UiApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:WpfBasic03UiApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+    </Grid>
+</mah:MetroWindow>
+```
+![alt text](KakaoTalk_20260604_140804802.png)
+
+
+
 #### Presenter(나중에)
 - 컨트롤의 실제 내용을 화면에 표시하는 자리
 

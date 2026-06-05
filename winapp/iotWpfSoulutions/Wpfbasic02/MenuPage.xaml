@@ -15,10 +15,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="1123" Click="Button_Click_3"/>
+            <Button Content="1123" Click="Button_Click_2"/>
             <Button Content="1123"/>
-            <Button Content="1123"/>
-            <Button Content="1123"/>
-            <Button Content="1123"/>
+            <Button x:Name="btnMenu4" Content="윈폼바인딩"/>
             
 
         </StackPanel>

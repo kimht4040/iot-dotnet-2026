@@ -32,5 +32,15 @@ namespace Wpfbasic02
         {
             NavigationService.Navigate(new Uri("/sub02.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/sub03.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/sub03.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }

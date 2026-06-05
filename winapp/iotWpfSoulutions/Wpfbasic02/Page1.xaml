@@ -28,7 +28,8 @@
             <Label Content="asdfasdfasdf" Background="Aqua"/>
             <TextBox Text="asdfasdfasdfasdf"/>
             <PasswordBox Password="asdfasdf"/>
-            <ProgressBar Minimum="0" Maximum="100" Value="30" Height="20"/>
+            <Slider x:Name="SliderTest" Minimum="0" Maximum="100" Value="50"/>
+            <ProgressBar Minimum="0" Maximum="100" Value="{Binding Value, ElementName=SliderTest}" Height="20"/>
         </StackPanel>
 
         <Grid Grid.Row="1" Grid.Column="1">
