@@ -34,6 +34,10 @@ CREATE TABLE menu
 
 
 
+https://github.com/user-attachments/assets/c8fd8977-7ebb-46c9-a956-3b99ec269d73
+
+
+
 
 
 ### Open AI 연동 앱
