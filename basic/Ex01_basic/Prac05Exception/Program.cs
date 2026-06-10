@@ -6,17 +6,23 @@
         {
             int x = 100, y = 0;
             float result;
+
             try
             {
-                result = x / y;
-
+                result = x / y;            
+            }
+            catch (ArithmeticException ex)
+            {
+                Console.WriteLine("수학 예외발생 : " + ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("예외발생" + ex.Message);
+                Console.WriteLine("예외발생 : " + ex.Message);
             }
-            finally { Console.WriteLine("프로그램 종료"); }
-            
+            finally
+            {
+                Console.WriteLine("프로그램 종료!");
+            }
         }
     }
 }

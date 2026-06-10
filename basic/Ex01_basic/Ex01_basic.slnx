@@ -1,8 +1,8 @@
 <Solution>
-  <Project Path="ConsoleApp01/ConsoleApp01.csproj" />
-  <Project Path="ConsoleApp2/ConsoleApp2.csproj" />
-  <Project Path="Prac03Syntax/Prac03Syntax.csproj" />
-  <Project Path="prac04/prac04.csproj" />
-  <Project Path="Prac05Exception/Prac05Exception.csproj" />
-  <Project Path="Prac06Arrange/Prac06Arrange.csproj" />
+  <Project Path="ConsoleApp1/ConsoleApp1.csproj" Id="4335de06-801e-435c-9363-cfd58f98f974" />
+  <Project Path="ConsoleApp2/ConsoleApp2.csproj" Id="7ae019e8-0a89-491d-9c3e-6e480643be07" />
+  <Project Path="Prac03Syntax/Prac03Syntax.csproj" Id="255d17f9-2016-450a-aa03-b0cd464da723" />
+  <Project Path="Prac04Collection/Prac04Collection.csproj" Id="9bbef91c-b04c-41e2-b1ed-15a1cf6c76f7" />
+  <Project Path="Prac05Exception/Prac05Exception.csproj" Id="01fb2834-ccf5-4718-8a2a-3fe060a4a9cb" />
+  <Project Path="Pract06Arrange/Pract06Arrange.csproj" Id="385d3f08-9c65-4d12-bf6b-3c7b95641b3e" />
 </Solution>

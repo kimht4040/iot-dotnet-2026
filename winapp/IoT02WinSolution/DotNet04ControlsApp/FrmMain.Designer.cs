@@ -31,401 +31,439 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             groupBox1 = new GroupBox();
-            btnDialog = new Button();
-            message = new Button();
-            modeless = new Button();
-            modal = new Button();
-            txtresult = new TextBox();
-            italic = new CheckBox();
-            bold = new CheckBox();
-            comboBox1 = new ComboBox();
-            font = new Label();
+            BtnDialog = new Button();
+            BtnMsgbox = new Button();
+            BtnModaless = new Button();
+            BtnModal = new Button();
+            TxtResult = new TextBox();
+            ChkItalic = new CheckBox();
+            ChkBold = new CheckBox();
+            CboFonts = new ComboBox();
+            label1 = new Label();
             groupBox2 = new GroupBox();
+            PrgStatus = new ProgressBar();
             TrkStatus = new TrackBar();
-            progressBar1 = new ProgressBar();
             groupBox3 = new GroupBox();
-            button2 = new Button();
-            button1 = new Button();
-            listview = new ListView();
-            treeview = new TreeView();
+            BtnAddRoot = new Button();
+            BtnAddNode = new Button();
+            LvwDummy = new ListView();
+            ImgDummy = new ImageList(components);
+            TvwDummy = new TreeView();
             groupBox4 = new GroupBox();
-            pictureBox1 = new PictureBox();
-            button3 = new Button();
+            BtnLoadImg = new Button();
+            PicImage = new PictureBox();
             groupBox5 = new GroupBox();
-            textBox1 = new TextBox();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            process = new ProgressBar();
+            BtnStop = new Button();
+            BtnThread = new Button();
+            BtnNoThread = new Button();
+            PrgProcess = new ProgressBar();
+            TxtLog = new TextBox();
             groupBox6 = new GroupBox();
-            save = new Button();
-            load = new Button();
+            BtnFileSave = new Button();
+            BtnFileLoad = new Button();
+            RtbEditor = new RichTextBox();
             DlgOpenFile = new OpenFileDialog();
-            saveFileDialog1 = new SaveFileDialog();
-            imageList1 = new ImageList(components);
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            TextBox2 = new RichTextBox();
+            WrkProcess = new System.ComponentModel.BackgroundWorker();
+            statusStrip1 = new StatusStrip();
+            LblCurrentTIme = new ToolStripStatusLabel();
+            timer1 = new System.Windows.Forms.Timer(components);
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TrkStatus).BeginInit();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicImage).BeginInit();
             groupBox5.SuspendLayout();
             groupBox6.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnDialog);
-            groupBox1.Controls.Add(message);
-            groupBox1.Controls.Add(modeless);
-            groupBox1.Controls.Add(modal);
-            groupBox1.Controls.Add(txtresult);
-            groupBox1.Controls.Add(italic);
-            groupBox1.Controls.Add(bold);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(font);
-            groupBox1.Location = new Point(32, 39);
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox1.Controls.Add(BtnDialog);
+            groupBox1.Controls.Add(BtnMsgbox);
+            groupBox1.Controls.Add(BtnModaless);
+            groupBox1.Controls.Add(BtnModal);
+            groupBox1.Controls.Add(TxtResult);
+            groupBox1.Controls.Add(ChkItalic);
+            groupBox1.Controls.Add(ChkBold);
+            groupBox1.Controls.Add(CboFonts);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(309, 152);
+            groupBox1.Size = new Size(382, 160);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "기본컨트롤";
+            groupBox1.Text = "기본 컨트롤";
             // 
-            // btnDialog
+            // BtnDialog
             // 
-            btnDialog.Location = new Point(259, 91);
-            btnDialog.Name = "btnDialog";
-            btnDialog.Size = new Size(38, 23);
-            btnDialog.TabIndex = 8;
-            btnDialog.Text = "...";
-            btnDialog.UseVisualStyleBackColor = true;
-            btnDialog.Click += btnDialog_Click;
+            BtnDialog.Location = new Point(323, 97);
+            BtnDialog.Name = "BtnDialog";
+            BtnDialog.Size = new Size(53, 29);
+            BtnDialog.TabIndex = 9;
+            BtnDialog.Text = "...";
+            BtnDialog.UseVisualStyleBackColor = true;
+            BtnDialog.Click += BtnDialog_Click;
             // 
-            // message
+            // BtnMsgbox
             // 
-            message.Location = new Point(171, 91);
-            message.Name = "message";
-            message.Size = new Size(82, 23);
-            message.TabIndex = 7;
-            message.Text = "message";
-            message.UseVisualStyleBackColor = true;
-            message.Click += message_Click;
+            BtnMsgbox.Location = new Point(213, 97);
+            BtnMsgbox.Name = "BtnMsgbox";
+            BtnMsgbox.Size = new Size(104, 29);
+            BtnMsgbox.TabIndex = 8;
+            BtnMsgbox.Text = "메시지창";
+            BtnMsgbox.UseVisualStyleBackColor = true;
+            BtnMsgbox.Click += BtnMsgbox_Click;
             // 
-            // modeless
+            // BtnModaless
             // 
-            modeless.Location = new Point(82, 91);
-            modeless.Name = "modeless";
-            modeless.Size = new Size(83, 23);
-            modeless.TabIndex = 6;
-            modeless.Text = "modeless";
-            modeless.UseVisualStyleBackColor = true;
-            modeless.Click += modeless_Click;
+            BtnModaless.Location = new Point(101, 97);
+            BtnModaless.Name = "BtnModaless";
+            BtnModaless.Size = new Size(106, 29);
+            BtnModaless.TabIndex = 7;
+            BtnModaless.Text = "모달리스";
+            BtnModaless.UseVisualStyleBackColor = true;
+            BtnModaless.Click += BtnModaless_Click;
             // 
-            // modal
+            // BtnModal
             // 
-            modal.Location = new Point(16, 91);
-            modal.Name = "modal";
-            modal.Size = new Size(60, 23);
-            modal.TabIndex = 5;
-            modal.Text = "modal";
-            modal.UseVisualStyleBackColor = true;
-            modal.Click += modal_Click;
+            BtnModal.Location = new Point(18, 97);
+            BtnModal.Name = "BtnModal";
+            BtnModal.Size = new Size(77, 29);
+            BtnModal.TabIndex = 6;
+            BtnModal.Text = "모달";
+            BtnModal.UseVisualStyleBackColor = true;
+            BtnModal.Click += BtnModal_Click;
             // 
-            // txtresult
+            // TxtResult
             // 
-            txtresult.Location = new Point(16, 51);
-            txtresult.Name = "txtresult";
-            txtresult.Size = new Size(281, 23);
-            txtresult.TabIndex = 4;
-            txtresult.FontChanged += txtresult_FontChanged;
+            TxtResult.Location = new Point(18, 64);
+            TxtResult.Name = "TxtResult";
+            TxtResult.ReadOnly = true;
+            TxtResult.Size = new Size(358, 27);
+            TxtResult.TabIndex = 5;
             // 
-            // italic
+            // ChkItalic
             // 
-            italic.AutoSize = true;
-            italic.Location = new Point(246, 24);
-            italic.Name = "italic";
-            italic.Size = new Size(51, 19);
-            italic.TabIndex = 3;
-            italic.Text = "italic";
-            italic.UseVisualStyleBackColor = true;
+            ChkItalic.AutoSize = true;
+            ChkItalic.Location = new Point(296, 32);
+            ChkItalic.Name = "ChkItalic";
+            ChkItalic.Size = new Size(76, 24);
+            ChkItalic.TabIndex = 4;
+            ChkItalic.Text = "이탤릭";
+            ChkItalic.UseVisualStyleBackColor = true;
+            ChkItalic.CheckedChanged += ChkItalic_CheckedChanged;
             // 
-            // bold
+            // ChkBold
             // 
-            bold.AutoSize = true;
-            bold.Location = new Point(190, 24);
-            bold.Name = "bold";
-            bold.Size = new Size(50, 19);
-            bold.TabIndex = 2;
-            bold.Text = "bold";
-            bold.UseVisualStyleBackColor = true;
+            ChkBold.AutoSize = true;
+            ChkBold.Location = new Point(229, 32);
+            ChkBold.Name = "ChkBold";
+            ChkBold.Size = new Size(61, 24);
+            ChkBold.TabIndex = 3;
+            ChkBold.Text = "굵게";
+            ChkBold.UseVisualStyleBackColor = true;
+            ChkBold.CheckedChanged += ChkBold_CheckedChanged;
             // 
-            // comboBox1
+            // CboFonts
             // 
-            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(51, 22);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 24);
-            comboBox1.TabIndex = 1;
+            CboFonts.FormattingEnabled = true;
+            CboFonts.Location = new Point(63, 30);
+            CboFonts.Name = "CboFonts";
+            CboFonts.Size = new Size(160, 28);
+            CboFonts.TabIndex = 2;
+            CboFonts.SelectedIndexChanged += CboFonts_SelectedIndexChanged;
             // 
-            // font
+            // label1
             // 
-            font.AutoSize = true;
-            font.Location = new Point(16, 25);
-            font.Name = "font";
-            font.Size = new Size(29, 15);
-            font.TabIndex = 0;
-            font.Text = "font";
+            label1.AutoSize = true;
+            label1.Location = new Point(18, 34);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 20);
+            label1.TabIndex = 1;
+            label1.Text = "폰트";
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox2.Controls.Add(PrgStatus);
             groupBox2.Controls.Add(TrkStatus);
-            groupBox2.Controls.Add(progressBar1);
-            groupBox2.Location = new Point(32, 197);
+            groupBox2.Location = new Point(12, 153);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(309, 145);
+            groupBox2.Size = new Size(382, 157);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "트랙바, 진행바";
             // 
+            // PrgStatus
+            // 
+            PrgStatus.Location = new Point(18, 88);
+            PrgStatus.Name = "PrgStatus";
+            PrgStatus.Size = new Size(358, 29);
+            PrgStatus.TabIndex = 11;
+            PrgStatus.Value = 10;
+            // 
             // TrkStatus
             // 
-            TrkStatus.Location = new Point(16, 22);
+            TrkStatus.Location = new Point(18, 26);
             TrkStatus.Maximum = 100;
             TrkStatus.Name = "TrkStatus";
-            TrkStatus.Size = new Size(281, 45);
-            TrkStatus.TabIndex = 1;
+            TrkStatus.Size = new Size(358, 56);
+            TrkStatus.TabIndex = 10;
             TrkStatus.TickFrequency = 5;
-            TrkStatus.Value = 10;
             TrkStatus.Scroll += TrkStatus_Scroll;
-            // 
-            // progressBar1
-            // 
-            progressBar1.Location = new Point(16, 82);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(281, 27);
-            progressBar1.TabIndex = 2;
-            progressBar1.Value = 10;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(button2);
-            groupBox3.Controls.Add(button1);
-            groupBox3.Controls.Add(listview);
-            groupBox3.Controls.Add(treeview);
-            groupBox3.Location = new Point(32, 348);
+            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox3.Controls.Add(BtnAddRoot);
+            groupBox3.Controls.Add(BtnAddNode);
+            groupBox3.Controls.Add(LvwDummy);
+            groupBox3.Controls.Add(TvwDummy);
+            groupBox3.Location = new Point(12, 291);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(309, 169);
+            groupBox3.Size = new Size(382, 262);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "트리, 리스트뷰";
             // 
-            // button2
+            // BtnAddRoot
             // 
-            button2.Location = new Point(224, 137);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 4;
-            button2.Text = "노드추가";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            BtnAddRoot.Location = new Point(182, 215);
+            BtnAddRoot.Name = "BtnAddRoot";
+            BtnAddRoot.Size = new Size(94, 29);
+            BtnAddRoot.TabIndex = 14;
+            BtnAddRoot.Text = "루트추가";
+            BtnAddRoot.UseVisualStyleBackColor = true;
+            BtnAddRoot.Click += BtnAddRoot_Click;
             // 
-            // button1
+            // BtnAddNode
             // 
-            button1.Location = new Point(143, 137);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 3;
-            button1.Text = "루트추가";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            BtnAddNode.Location = new Point(282, 215);
+            BtnAddNode.Name = "BtnAddNode";
+            BtnAddNode.Size = new Size(94, 29);
+            BtnAddNode.TabIndex = 15;
+            BtnAddNode.Text = "노드추가";
+            BtnAddNode.UseVisualStyleBackColor = true;
+            BtnAddNode.Click += BtnAddNode_Click;
             // 
-            // listview
+            // LvwDummy
             // 
-            listview.Location = new Point(143, 22);
-            listview.Name = "listview";
-            listview.Size = new Size(154, 112);
-            listview.TabIndex = 2;
-            listview.UseCompatibleStateImageBehavior = false;
+            LvwDummy.LargeImageList = ImgDummy;
+            LvwDummy.Location = new Point(196, 26);
+            LvwDummy.Name = "LvwDummy";
+            LvwDummy.Size = new Size(180, 183);
+            LvwDummy.SmallImageList = ImgDummy;
+            LvwDummy.TabIndex = 13;
+            LvwDummy.UseCompatibleStateImageBehavior = false;
             // 
-            // treeview
+            // ImgDummy
             // 
-            treeview.Location = new Point(16, 22);
-            treeview.Name = "treeview";
-            treeview.Size = new Size(121, 112);
-            treeview.TabIndex = 1;
+            ImgDummy.ColorDepth = ColorDepth.Depth32Bit;
+            ImgDummy.ImageStream = (ImageListStreamer)resources.GetObject("ImgDummy.ImageStream");
+            ImgDummy.TransparentColor = Color.Transparent;
+            ImgDummy.Images.SetKeyName(0, "folder.png");
+            ImgDummy.Images.SetKeyName(1, "file.png");
+            // 
+            // TvwDummy
+            // 
+            TvwDummy.ImageIndex = 0;
+            TvwDummy.ImageList = ImgDummy;
+            TvwDummy.Location = new Point(6, 26);
+            TvwDummy.Name = "TvwDummy";
+            TvwDummy.SelectedImageIndex = 0;
+            TvwDummy.Size = new Size(184, 183);
+            TvwDummy.TabIndex = 12;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(pictureBox1);
-            groupBox4.Controls.Add(button3);
-            groupBox4.Location = new Point(347, 39);
+            groupBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox4.Controls.Add(BtnLoadImg);
+            groupBox4.Controls.Add(PicImage);
+            groupBox4.Location = new Point(400, 12);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(315, 303);
+            groupBox4.Size = new Size(382, 325);
             groupBox4.TabIndex = 3;
             groupBox4.TabStop = false;
             groupBox4.Text = "픽쳐박스";
             // 
-            // pictureBox1
+            // BtnLoadImg
             // 
-            pictureBox1.Location = new Point(6, 25);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(303, 242);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            BtnLoadImg.Location = new Point(282, 265);
+            BtnLoadImg.Name = "BtnLoadImg";
+            BtnLoadImg.Size = new Size(94, 29);
+            BtnLoadImg.TabIndex = 1;
+            BtnLoadImg.Text = "이미지";
+            BtnLoadImg.UseVisualStyleBackColor = true;
+            BtnLoadImg.Click += BtnLoadImg_Click;
             // 
-            // button3
+            // PicImage
             // 
-            button3.Location = new Point(234, 274);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 0;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            PicImage.Location = new Point(6, 26);
+            PicImage.Name = "PicImage";
+            PicImage.Size = new Size(370, 233);
+            PicImage.TabIndex = 0;
+            PicImage.TabStop = false;
+            PicImage.Click += PicImage_Click;
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(textBox1);
-            groupBox5.Controls.Add(button6);
-            groupBox5.Controls.Add(button5);
-            groupBox5.Controls.Add(button4);
-            groupBox5.Controls.Add(process);
-            groupBox5.Location = new Point(347, 348);
+            groupBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox5.Controls.Add(BtnStop);
+            groupBox5.Controls.Add(BtnThread);
+            groupBox5.Controls.Add(BtnNoThread);
+            groupBox5.Controls.Add(PrgProcess);
+            groupBox5.Controls.Add(TxtLog);
+            groupBox5.Location = new Point(400, 318);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(315, 169);
-            groupBox5.TabIndex = 4;
+            groupBox5.Size = new Size(382, 235);
+            groupBox5.TabIndex = 3;
             groupBox5.TabStop = false;
             groupBox5.Text = "스레드";
             // 
-            // textBox1
+            // BtnStop
             // 
-            textBox1.Location = new Point(6, 20);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(303, 82);
-            textBox1.TabIndex = 4;
+            BtnStop.Location = new Point(288, 188);
+            BtnStop.Name = "BtnStop";
+            BtnStop.Size = new Size(94, 29);
+            BtnStop.TabIndex = 4;
+            BtnStop.Text = "중지";
+            BtnStop.UseVisualStyleBackColor = true;
+            BtnStop.Click += BtnStop_Click;
             // 
-            // button6
+            // BtnThread
             // 
-            button6.Location = new Point(216, 137);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 23);
-            button6.TabIndex = 3;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            BtnThread.Location = new Point(188, 188);
+            BtnThread.Name = "BtnThread";
+            BtnThread.Size = new Size(94, 29);
+            BtnThread.TabIndex = 3;
+            BtnThread.Text = "스레드";
+            BtnThread.UseVisualStyleBackColor = true;
+            BtnThread.Click += BtnThread_Click;
             // 
-            // button5
+            // BtnNoThread
             // 
-            button5.Location = new Point(135, 137);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 2;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            BtnNoThread.Location = new Point(88, 188);
+            BtnNoThread.Name = "BtnNoThread";
+            BtnNoThread.Size = new Size(94, 29);
+            BtnNoThread.TabIndex = 2;
+            BtnNoThread.Text = "노스레드";
+            BtnNoThread.UseVisualStyleBackColor = true;
+            BtnNoThread.Click += BtnNoThread_Click;
             // 
-            // button4
+            // PrgProcess
             // 
-            button4.Location = new Point(54, 137);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 1;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            PrgProcess.Location = new Point(6, 163);
+            PrgProcess.Name = "PrgProcess";
+            PrgProcess.Size = new Size(370, 19);
+            PrgProcess.TabIndex = 1;
             // 
-            // process
+            // TxtLog
             // 
-            process.Location = new Point(6, 108);
-            process.Name = "process";
-            process.Size = new Size(303, 23);
-            process.TabIndex = 0;
+            TxtLog.BorderStyle = BorderStyle.FixedSingle;
+            TxtLog.Location = new Point(6, 26);
+            TxtLog.Multiline = true;
+            TxtLog.Name = "TxtLog";
+            TxtLog.Size = new Size(370, 131);
+            TxtLog.TabIndex = 0;
             // 
             // groupBox6
             // 
-            groupBox6.Controls.Add(TextBox2);
-            groupBox6.Controls.Add(save);
-            groupBox6.Controls.Add(load);
-            groupBox6.Location = new Point(668, 39);
+            groupBox6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox6.Controls.Add(BtnFileSave);
+            groupBox6.Controls.Add(BtnFileLoad);
+            groupBox6.Controls.Add(RtbEditor);
+            groupBox6.Location = new Point(788, 12);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(504, 478);
-            groupBox6.TabIndex = 1;
+            groupBox6.Size = new Size(382, 541);
+            groupBox6.TabIndex = 4;
             groupBox6.TabStop = false;
-            groupBox6.Text = "텍스트 에디터";
+            groupBox6.Text = "텍스트에디터";
             // 
-            // save
+            // BtnFileSave
             // 
-            save.Location = new Point(423, 449);
-            save.Name = "save";
-            save.Size = new Size(75, 23);
-            save.TabIndex = 2;
-            save.Text = "세이브";
-            save.UseVisualStyleBackColor = true;
-            save.Click += save_Click;
+            BtnFileSave.Location = new Point(282, 494);
+            BtnFileSave.Name = "BtnFileSave";
+            BtnFileSave.Size = new Size(94, 29);
+            BtnFileSave.TabIndex = 2;
+            BtnFileSave.Text = "파일세이브";
+            BtnFileSave.UseVisualStyleBackColor = true;
+            BtnFileSave.Click += BtnFileSave_Click;
             // 
-            // load
+            // BtnFileLoad
             // 
-            load.Location = new Point(342, 449);
-            load.Name = "load";
-            load.Size = new Size(75, 23);
-            load.TabIndex = 1;
-            load.Text = "로드";
-            load.UseVisualStyleBackColor = true;
-            load.Click += load_Click;
+            BtnFileLoad.Location = new Point(182, 494);
+            BtnFileLoad.Name = "BtnFileLoad";
+            BtnFileLoad.Size = new Size(94, 29);
+            BtnFileLoad.TabIndex = 1;
+            BtnFileLoad.Text = "파일로드";
+            BtnFileLoad.UseVisualStyleBackColor = true;
+            BtnFileLoad.Click += BtnFileLoad_Click;
+            // 
+            // RtbEditor
+            // 
+            RtbEditor.BorderStyle = BorderStyle.None;
+            RtbEditor.Location = new Point(6, 26);
+            RtbEditor.Name = "RtbEditor";
+            RtbEditor.Size = new Size(370, 462);
+            RtbEditor.TabIndex = 0;
+            RtbEditor.Text = "";
             // 
             // DlgOpenFile
             // 
-            DlgOpenFile.FileName = "openFileDialog1";
-            DlgOpenFile.Filter = "텍스트 파일 (*.txt)|*.txt|모든 파일 (*.*)|*.*";
+            DlgOpenFile.FileName = "텍스트 파일을 선택하세요";
+            DlgOpenFile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            DlgOpenFile.InitialDirectory = "C:\\SourceBank";
+            DlgOpenFile.Title = "텍스트 파일 열기";
             // 
-            // imageList1
+            // WrkProcess
             // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "qweqwe.png");
-            imageList1.Images.SetKeyName(1, "스크린샷 2026-04-13 161459.png");
-            imageList1.Images.SetKeyName(2, "스크린샷 2026-04-13 162055.png");
-            imageList1.Images.SetKeyName(3, "스크린샷 2026-04-13 162115.png");
-            imageList1.Images.SetKeyName(4, "스크린샷 2026-05-26 113403.png");
-            imageList1.Images.SetKeyName(5, "스크린샷 2026-05-26 142504.png");
-            imageList1.Images.SetKeyName(6, "스크린샷 2026-05-26 155800.png");
-            imageList1.Images.SetKeyName(7, "스크린샷 2026-05-26 160616.png");
-            imageList1.Images.SetKeyName(8, "스크린샷 2026-05-26 163259.png");
+            WrkProcess.DoWork += WrkProcess_DoWork;
+            WrkProcess.ProgressChanged += WrkProcess_ProgressChanged;
+            WrkProcess.RunWorkerCompleted += WrkProcess_RunWorkerCompleted;
             // 
-            // backgroundWorker1
+            // statusStrip1
             // 
-            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
-            backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
-            backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { LblCurrentTIme });
+            statusStrip1.Location = new Point(0, 552);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(1182, 26);
+            statusStrip1.TabIndex = 5;
+            statusStrip1.Text = "statusStrip1";
             // 
-            // TextBox2
+            // LblCurrentTIme
             // 
-            TextBox2.Location = new Point(6, 22);
-            TextBox2.Name = "TextBox2";
-            TextBox2.Size = new Size(492, 421);
-            TextBox2.TabIndex = 3;
-            TextBox2.Text = "";
+            LblCurrentTIme.Name = "LblCurrentTIme";
+            LblCurrentTIme.Size = new Size(113, 20);
+            LblCurrentTIme.Text = "LblCurrentTIme";
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // FrmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 541);
-            Controls.Add(groupBox5);
+            ClientSize = new Size(1182, 578);
+            Controls.Add(statusStrip1);
             Controls.Add(groupBox6);
+            Controls.Add(groupBox5);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FrmMain";
-            Text = "컨트롤예제";
+            Text = "컨트롤 예제";
+            FormClosing += FrmMain_FormClosing;
             Load += FrmMain_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -434,12 +472,21 @@
             ((System.ComponentModel.ISupportInitialize)TrkStatus).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicImage).EndInit();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             groupBox6.ResumeLayout(false);
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
+
+
+
+
+
+
 
         #endregion
 
@@ -449,34 +496,36 @@
         private GroupBox groupBox4;
         private GroupBox groupBox5;
         private GroupBox groupBox6;
-        private TextBox txtresult;
-        private CheckBox italic;
-        private CheckBox bold;
-        private ComboBox comboBox1;
-        private Label font;
-        private Button modal;
-        private Button btnDialog;
-        private Button message;
-        private Button modeless;
+        private TextBox TxtResult;
+        private CheckBox ChkItalic;
+        private CheckBox ChkBold;
+        private ComboBox CboFonts;
+        private Label label1;
+        private Button BtnDialog;
+        private Button BtnMsgbox;
+        private Button BtnModaless;
+        private Button BtnModal;
         private OpenFileDialog DlgOpenFile;
+        private ProgressBar PrgStatus;
         private TrackBar TrkStatus;
-        private ProgressBar progressBar1;
-        private ListView listview;
-        private TreeView treeview;
-        private Button button2;
-        private Button button1;
-        private SaveFileDialog saveFileDialog1;
-        private ImageList imageList1;
-        private PictureBox pictureBox1;
-        private Button button3;
-        private TextBox textBox1;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private ProgressBar process;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private Button load;
-        private Button save;
-        private RichTextBox TextBox2;
+        private ListView LvwDummy;
+        private TreeView TvwDummy;
+        private Button BtnAddRoot;
+        private Button BtnAddNode;
+        private ImageList ImgDummy;
+        private Button BtnLoadImg;
+        private PictureBox PicImage;
+        private Button BtnStop;
+        private Button BtnThread;
+        private Button BtnNoThread;
+        private ProgressBar PrgProcess;
+        private TextBox TxtLog;
+        private System.ComponentModel.BackgroundWorker WrkProcess;
+        private Button BtnFileSave;
+        private Button BtnFileLoad;
+        private RichTextBox RtbEditor;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel LblCurrentTIme;
+        private System.Windows.Forms.Timer timer1;
     }
 }

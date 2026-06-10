@@ -28,54 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            textBox1 = new TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            LblDisplay = new Label();
+            TxtNum = new TextBox();
+            BtnCheck = new Button();
+            BtnStart = new Button();
             SuspendLayout();
             // 
-            // button1
+            // LblDisplay
             // 
-            button1.Location = new Point(291, 99);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            LblDisplay.Dock = DockStyle.Top;
+            LblDisplay.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LblDisplay.Location = new Point(0, 0);
+            LblDisplay.Name = "LblDisplay";
+            LblDisplay.Size = new Size(365, 38);
+            LblDisplay.TabIndex = 0;
+            LblDisplay.Text = "게임을 시작합니다";
+            LblDisplay.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // TxtNum
             // 
-            button2.Location = new Point(204, 203);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            TxtNum.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TxtNum.Location = new Point(62, 53);
+            TxtNum.Name = "TxtNum";
+            TxtNum.Size = new Size(125, 34);
+            TxtNum.TabIndex = 1;
             // 
-            // textBox1
+            // BtnCheck
             // 
-            textBox1.Location = new Point(94, 100);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
+            BtnCheck.Font = new Font("맑은 고딕", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BtnCheck.Location = new Point(193, 53);
+            BtnCheck.Name = "BtnCheck";
+            BtnCheck.Size = new Size(110, 34);
+            BtnCheck.TabIndex = 2;
+            BtnCheck.Text = "확인";
+            BtnCheck.UseVisualStyleBackColor = true;
+            BtnCheck.Click += BtnCheck_Click;
+            // 
+            // BtnStart
+            // 
+            BtnStart.Dock = DockStyle.Bottom;
+            BtnStart.Font = new Font("맑은 고딕", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BtnStart.Location = new Point(0, 114);
+            BtnStart.Name = "BtnStart";
+            BtnStart.Size = new Size(365, 37);
+            BtnStart.TabIndex = 3;
+            BtnStart.Text = "게임 시작";
+            BtnStart.UseVisualStyleBackColor = true;
+            BtnStart.Click += BtnStart_Click;
             // 
             // FrmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(456, 285);
-            Controls.Add(textBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(365, 151);
+            Controls.Add(BtnStart);
+            Controls.Add(BtnCheck);
+            Controls.Add(TxtNum);
+            Controls.Add(LblDisplay);
+            Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FrmMain";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "숫자 맞히기 게임";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private TextBox textBox1;
+        private Label LblDisplay;
+        private TextBox TxtNum;
+        private Button BtnCheck;
+        private Button BtnStart;
     }
 }
