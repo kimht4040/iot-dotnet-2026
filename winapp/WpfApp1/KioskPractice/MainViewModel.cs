@@ -8,6 +8,7 @@ namespace KioskPractice
 
     public class MainViewModel : INotifyPropertyChanged
     {
+        
         public ICommand DecreaseQuantityCommand { get; }
         public ICommand IncreaseQuantityCommand { get; }
         // 1. 데이터 컬렉션 (ObservableCollection은 항목이 추가/삭제될 때 UI가 알아서 갱신됨)
