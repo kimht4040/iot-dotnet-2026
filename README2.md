@@ -37,6 +37,10 @@ CREATE TABLE menu
 - 나음시간 완료 후 전체내용 초기화 
 - 홈버튼 클릭 초기화 
 
+https://github.com/user-attachments/assets/c8fd8977-7ebb-46c9-a956-3b99ec269d73
+
+
+
 
 
 # 1.2. OpenAPI 연동앱 개발
