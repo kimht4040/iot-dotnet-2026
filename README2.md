@@ -450,7 +450,8 @@ https://github.com/user-attachments/assets/b2f63508-2c0e-4b86-93fe-90f76c27550c
   - SignalR : 실시간웹
   - WebSocket 브로드캐스트 : 실시간웹
 - 소켓통신, TCP/IP 기반
-
+- 일반적으로 육상은 실시간 전송 가능(100ms ~ 1s)
+- 육상과 해상을 연결하는 위성 통신 전송은 준실시간으로(1m ~ 5m)
 - MQTT 동작방식
 
 ![alt text](image-39.png)
@@ -459,13 +460,93 @@ https://github.com/user-attachments/assets/b2f63508-2c0e-4b86-93fe-90f76c27550c
 
 ![alt text](image-40.png)
 
+
+
+
+
 #### WPF SmartHome 프로젝트
 
 - Dummy Sensing Data 생성, 송신 시뮬레이터 앱 구현
 - MQTT 브로커 설치 및 설정
 - SmartHome 모니터링 앱 구현
+![alt text](KakaoTalk_20260612_121212496.png)
+
+##### 중간 실행결과
+- 현재 방4개(침실, 거실, 주방, 욕실)
+- 각 방별로 IoT장비(아두이노)+ 온습도 센서+ 무선통신 구성 필요
+- 라즈베리파이 등의 수집장비에서 데이터 수신받은 뒤
+- json으로 변경해서 MQTT Broker로 전달
+![alt text](KakaoTalk_20260612_122436396.png)
+##### 추가 개발건
+- [x] 리치 텍스트 박스 텍스트 출력 수정
+- [x] 연결 후 연결 종료 
+- [ ] MQTT Broker 연결 Pubilsh  구현
+- [x] 일정시간 이후 리치텍스트 박스에 출력된 이전 텍스트 삭제
+
+
+##### 1차 완료 실행 결과
+![alt text](KakaoTalk_20260612_142732736.png) 
+
 
 #### MQTT 브로커
+
+- MQTT를 사용하는 클라이언트, 서버끼리 직접 통신하지 않음
+- 모든 메시지가 Broker를 통해서 전달
+
+
+###### 브로커 기능
+1. 메시지 중계
+2. Topic 관리 - 개발사가 결정
+  smarthome/d103703 - 103동 703호 데이터 처리
+  smarthom/# - 모든 데이터 수신
+3. QoS(Quality of Service) - 메시지 전달 보장수준 관리
+  - 전송 실패하면 다시 보낼지, 버리고 다음 데이터 보낼지 결정
+4. 보안 관리
+
+
+
+##### 브로커 종류
+- Eclipse mosquitto - 무료, 라즈베리파이 가능, 오픈소스
+- EMQX - 대규모 서비스용, 수백만연결, 클러스터링
+- HiveMQ - 기업용, 고성능, 클라우드 지원
+
+
+##### Mosquitto 설치
+![alt text](KakaoTalk_20260612_145906679.png)
+##### MQTT explorer 설치
+![alt text](image-41.png)
+
+##### Mosquitto 설정
+- 퍼블리쉬 테스트
+![alt text](KakaoTalk_20260612_151053397.png)
+- 설치경로 \MOSQUITTO\mosquitto.conf
+```conf
+#Config file for mosquitto
+...
+#MQTT 브로커 port 번호 1883
+#
+allow_anonymous true
+listener 1883
+```
+- 윈도우 서비스에서 브로커 재시작
+- 모스키토 설치된 ip 주소 확인
+##### 모스키토 계정 암호화
+- 파워쉘 실행
+```powershell
+# root 계정의 암호파일을 생성
+. ./mosquitto_passwd.exe -c password.txt root
+# root 계정의 암호를 입력
+password : mqtt123456
+```
+![alt text](KakaoTalk_20260612_155351576.png)
+- 모스키토 설치 폴더에 붙여넣기
+- 서비스에서 모스키토 브로커 다시시작
+![alt text](KakaoTalk_20260612_160337184.png)
+
+##### MQTT 퍼블리셔 
+- 앱에 구현 완
+##### MQTTnet 패키지 설치 
+- NuGet패키지 관리에서 MQTTnet 검색 후 설치
 
 #### Dummy Simulator앱
 
