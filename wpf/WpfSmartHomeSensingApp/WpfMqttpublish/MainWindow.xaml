@@ -1,0 +1,46 @@
+<mah:MetroWindow x:Class="WpfMqttpublish.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:WpfMqttpublish"
+        mc:Ignorable="d"
+        Title="MQTT Publisher" Height="500" Width="650">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0" Header="Broker Settings" Margin="0,0,0,10">
+            <StackPanel Margin="5">
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <Label Content="IP Address:" Width="80"/>
+                    <TextBox x:Name="TxtBrokerAddress" Width="150" Text="127.0.0.1" mah:TextBoxHelper.Watermark="127.0.0.1"/>
+                    <Label Content="Port:" Margin="10,0,0,0" Width="40"/>
+                    <TextBox x:Name="TxtPort" Width="60" Text="1883"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <Label Content="User ID:" Width="80"/>
+                    <TextBox x:Name="TxtUser" Width="150" Text="root"/>
+                    <Label Content="Password:" Margin="10,0,0,0" Width="70"/>
+                    <PasswordBox x:Name="TxtPassword" Width="150"/>
+                    <Button x:Name="BtnConnect" Content="CONNECT" Width="80" Margin="10,0,0,0" Click="BtnConnect_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <Label Content="Topic:" VerticalAlignment="Center" Width="80"/>
+            <TextBox x:Name="TxtTopic" Width="250" Text="home/sensor/data" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <Button x:Name="BtnStartPublish" Content="Start Publishing" Width="120" Margin="10,0,0,0" IsEnabled="False" Click="BtnStartPublish_Click"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="2" x:Name="TxtStatus" Text="Disconnected" Foreground="Red" FontWeight="Bold" Margin="5,0,0,5"/>
+
+        <ListBox x:Name="LstLog" Grid.Row="3" BorderThickness="1" BorderBrush="Gray"/>
+    </Grid>
+</mah:MetroWindow>
