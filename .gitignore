@@ -534,3 +534,63 @@ InitTestScene*.unity*
 **/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 # Auto-generated cache in Assets folder
 **/[Aa]ssets/[Ss]ceneDependencyCache*
+
+# This .gitignore file should be placed at the root of your Unity project.
+#
+# GitHub Official Unity template: https://github.com/github/gitignore/blob/main/Unity.gitignore
+
+/[As]sets/AssetStoreTools*
+/[As]sets/WebGLTemplates/*/Development/
+
+# 1. 유니티가 자동으로 생성하는 임시/작업 폴더들
+/[Ll]ibrary/
+/[Ll]ocal[Cc]ache/
+/[Log]s/
+/[Oo]bj/
+/[Pp]ackages/
+/[Tt]emp/
+/[Uu]ser[Ss]ettings/
+
+# 2. 빌드 결과물 폴더 (직접 만든 빌드 폴더명에 맞게 수정 가능)
+/[Bb]uild/
+/[Bb]uilds/
+/[Bb]uild[Pp]layer/
+
+# 3. 크래시 리포트 관련
+/[Cc]rash[[Rr]eport]/
+
+# 4. 에셋번들 및 어드레서블 자동 생성 결과물
+/[As]sets/[Aa]ddressable[As]sets[Dd]ata/*/[Ll]ive[Dd]ata/
+/[As]sets/StreamingAssets/aa/*
+
+# 5. IDE/Visual Studio/Rider/VS Code 관련 자동 생성 파일
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# 6. OS 및 시스템 생성 파일
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 7. 유니티 패키지 관리자가 다운로드하는 에셋 관련 (선택)
+# 만약 Package 폴더 내부의 manifest.json 수정사항은 추적해야 하므로 폴더 통째로 지우지 않고 아래처럼 예외 처리합니다.
+!/[Pp]ackages/manifest.json
+!/[Pp]ackages/packages-lock.json
